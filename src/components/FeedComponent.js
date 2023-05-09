@@ -5,7 +5,7 @@ const FeedComponent = () => {
         <div className='feed-item w-3/4  bg-white rounded-lg py-2 px-3 md:w-3/5'>
             <div className='flex flex-row justify-between items-center'>
                 <div className='flex flex-row gap-2'>
-                    <img src='https://o.remove.bg/downloads/9c743590-ca06-4a78-b3b6-cbd5b3a8ffba/istockphoto-1337144146-612x612-removebg-preview.png' alt='User profile' className=' w-14 h-14 rounded-full' />
+                    <img src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png' alt='User profile' className=' w-14 h-14 rounded-full' />
                     <div>
                         <h1 className='text-black text-lg'>John Doe</h1>
                         <span className=' text-gray-400 text-sm'>San Diego, CA</span>

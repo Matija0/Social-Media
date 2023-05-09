@@ -1,29 +1,63 @@
-import React from 'react'
+import React from "react";
 
 const Login = () => {
-    return (
-        <div className=' container w-2/5 mx-auto px-14 rounded-xl my-14  flex flex-col items-center py-10 bg-gray-700 '>
-            <div> <h1 className='text-white text-xl font-bold mb-7'>Login to your account</h1></div>
-
-
-            <form className='flex flex-col space-y-4'>
-                <label for="email" className=' text-sm font-medium text-white mb-2'>Your email</label>
-                <input type="email" id="email" className=' bg-gray-500 border-2 border-gray-400 rounded-lg focus:outline-none text-white p-2.5' placeholder="name@company.com" required="" />
-                <label for="password" className='mb-2 text-sm font-medium text-white'>Your password</label>
-                <input type="password" id="password" placeholder="••••••••" className='bg-gray-500 border-2 border-gray-400  rounded-lg focus:outline-none w-full p-2.5 text-white ' required="" />
-                <button type='submit' className='bg-blue-700 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center text-gray-300 mt-5 w-1/2 self-center'>Login</button>
-                <p class="text-base font-light text-gray-300">
-                    Don't have an account? Register <span className="font-medium text-primary-600 hover:underline hover:cursor-pointer">here</span>
-                </p>
-
-
-
-
-
-
-            </form>
+  return (
+    <div className=" bg-none py-6 flex flex-col justify-center sm:py-12">
+      <div className="relative py-3 sm:max-w-xl sm:mx-auto">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+        <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+          <div className="max-w-md mx-auto">
+            <div>
+              <h1 className="text-2xl font-semibold">
+                Login to your account
+              </h1>
+            </div>
+            <div className="divide-y divide-gray-200">
+              <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                <div className="relative">
+                  <input
+                    autocomplete="off"
+                    id="email"
+                    name="email"
+                    type="text"
+                    className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
+                    placeholder="Email address"
+                  />
+                  <label
+                    for="email"
+                    className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
+                  >
+                    Email Address
+                  </label>
+                </div>
+                <div className="relative">
+                  <input
+                    autocomplete="off"
+                    id="password"
+                    name="password"
+                    type="password"
+                    className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
+                    placeholder="Password"
+                  />
+                  <label
+                    for="password"
+                    className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
+                  >
+                    Password
+                  </label>
+                </div>
+                <div className="relative">
+                  <button className="bg-blue-500 text-white rounded-md px-2 py-1 hover:bg-blue-600">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
-export default Login
+export default Login;

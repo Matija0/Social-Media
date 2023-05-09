@@ -10,8 +10,8 @@ const PostInput = () => {
 
             </div>
             <div className='flex flex-row gap-3 justify-between items-center mt-4'>
-                <button className='text-2xl text-gray-400 flex flex-row items-center gap-2'><i class="bi bi-card-image"></i><span className='text-base'>Image</span></button>
-                <button className=' w-fit h-fit py-2 rounded-lg px-3 text-base text-white bg-sky-500'>Post</button>
+            <button className='text-2xl text-gray-400 flex flex-row items-center gap-2'><i class="bi bi-card-image"></i><span className='text-base'>Image</span></button>
+                <button className=' w-fit h-fit py-2 rounded-lg px-3 text-sm text-white bg-sky-500 hover:bg-sky-400'>Post</button>
             </div>
         </div>
     )
