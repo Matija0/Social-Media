@@ -32,7 +32,7 @@ const FeedComponent = () => {
             <div className=''>
 
                 <p className='text-base my-4'>Duis dolore quis enim quis velit mollit. Ex dolor occaecat nisi magna fugiat tempor. Officia Lorem excepteur mollit ad ut amet. Magna officia Lorem id quis non tempor ut velit cillum ullamco aliquip ipsum. Lorem quis officia fugiat pariatur id labore id fugiat quis excepteur. Irure amet enim dolor do magna elit laboris.</p>
-                <img className='w-full ' src='https://cdn.pixabay.com/photo/2019/07/14/16/27/pen-4337521__340.jpg' alt='' />
+                <img className=' w-full rounded-lg' src='https://cdn.pixabay.com/photo/2019/07/14/16/27/pen-4337521__340.jpg' alt='' />
                 <div className='flex flex-row gap-2 mt-3 items-center'>
                     {isLiked ? (<button className='text-2xl text-blue-500' onClick={() => { setIsLiked(val => !val) }}><i class="bi bi-hand-thumbs-up-fill"></i> <span className='text-xl'></span></button>) : (<button className='text-2xl text-blue-500' onClick={() => { setIsLiked(val => !val) }}><i class="bi bi-hand-thumbs-up"></i></button>)}
 
