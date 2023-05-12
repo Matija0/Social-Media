@@ -2,9 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .App {
     background-color: #e9ecef;
     min-height: 100vh;
+   
 }
 
 .nav-el {
@@ -12,3 +14,33 @@
     top: 0;
     width: 100%;
 }
+
+#feed-el{
+    max-width: 1440px;
+}
+
+#left-el{
+    width: 30%;
+}
+
+#center-el{
+    width: 60%;
+}
+
+#right-el{
+    width: 30%;
+}
+
+@media only screen and (max-width: 768px) {
+    #left-el{
+        width: 100%;
+    }
+    
+    #center-el{
+        width: 100%;
+    }
+    
+    #right-el{
+        width: 100%;
+    }
+  }

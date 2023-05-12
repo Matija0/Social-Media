@@ -4,6 +4,7 @@ const ProfileElement = () => {
   return (
     <div className="bg-white rounded-lg h-fit px-3 py-2 space-y-2">
       <div>
+        {/*button for friend list mobile*/}
         <img
           className=" w-14 h-14 rounded-full"
           src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"

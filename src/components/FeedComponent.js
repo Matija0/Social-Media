@@ -31,16 +31,16 @@ const FeedComponent = () => {
         </div>
         {isFollowed ? (
           <button
-            className="border border-sky-500 text-sky-500 py-1 px-2  w-fit h-fit rounded-lg text-sm"
+            className="border-2 border-sky-500 text-sky-500 py-1 px-2  w-fit h-fit rounded-lg text-sm"
             onClick={() => {
               setIsFollowed((val) => !val);
             }}
           >
-            Follow <i class="bi bi-check-all"></i>
+             <i class="bi bi-check-all"></i>
           </button>
         ) : (
           <button
-            className="border border-sky-500 text-sky-500 py-1 px-2  w-fit h-fit rounded-lg text-sm"
+            className="border-2 border-sky-500 text-sky-500 py-1 px-2  w-fit h-fit rounded-lg text-sm"
             onClick={() => {
               setIsFollowed((val) => !val);
             }}

@@ -2,21 +2,22 @@ import React from "react";
 import FeedComponent from "../../components/FeedComponent";
 import PostInput from "../../components/PostInput";
 import ProfileElement from "../../components/ProfileElement";
-import FollowList from "../../components/FollowList";
+
 import Suggested from "../../components/Suggested";
 import Stories from "../../components/Stories";
 import Ads from "../../components/Ads";
+import FriendList from "../../components/FriendList";
 
 const Feed = () => {
   return (
-    <div className=" mx-11 mt-8 pt-14 flex flex-row gap-5 ">
-      <div style={{ width: "30%" }}>
+    <div id="feed-el" className=" mx-auto mt-8 pt-14 flex flex-col gap-5 md:flex-row">
+      <div id="left-el">
         <ProfileElement />
-        <div className="mt-5">
+        <div className="mt-5 hidden md:block">
           <Ads />
         </div>
       </div>
-      <div className="flex flex-col gap-5" style={{ width: "60%" }}>
+      <div id="center-el" className="flex flex-col gap-5">
         <PostInput />
         <Stories />
         <FeedComponent />
@@ -24,8 +25,8 @@ const Feed = () => {
         <FeedComponent />
         <FeedComponent />
       </div>
-      <div style={{ width: "30%" }}>
-        <FollowList />
+      <div id="right-el">
+        <FriendList/>
         <div className="mt-5">
           <Suggested />
         </div>

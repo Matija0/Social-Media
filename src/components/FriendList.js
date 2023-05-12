@@ -1,10 +1,10 @@
 import React from "react";
 
-const FollowList = () => {
+const FriendList = () => {
   return (
     <div className="bg-white h-fit rounded-lg py-2 px-3">
       <div className="flex flex-row items-center">
-        <h1 className="text-lg font-bold mb-2">People that follow you</h1>
+        <h1 className="text-lg font-bold mb-2">Friends</h1>
         <button className=" cursor-default ml-auto">
           <p className="text-sm font-bold text-blue-500 hover:text-blue-600 mb-2">
             See All
@@ -47,4 +47,4 @@ const FollowList = () => {
   );
 };
 
-export default FollowList;
+export default FriendList;
