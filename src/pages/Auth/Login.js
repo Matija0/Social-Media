@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -8,9 +8,7 @@ const Login = () => {
         <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
           <div className="max-w-md mx-auto">
             <div>
-              <h1 className="text-2xl font-semibold">
-                Login to your account
-              </h1>
+              <h1 className="text-2xl font-semibold">Login to your account</h1>
             </div>
             <div className="divide-y divide-gray-200">
               <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
@@ -47,9 +45,21 @@ const Login = () => {
                   </label>
                 </div>
                 <div className="relative">
-                  <button className="bg-blue-500 text-white rounded-md px-2 py-1 hover:bg-blue-600">
-                    Submit
-                  </button>
+                  <p>
+                    You don't have an acconut{" "}
+                    <Link to="/register">
+                      <span className="text-blue-500 hover:text-blue-600">
+                        Register here!
+                      </span>
+                    </Link>
+                  </p>
+                </div>
+                <div className="relative">
+                  <Link to="/">
+                    <button className="bg-blue-500 text-white rounded-md px-2 py-1 hover:bg-blue-600">
+                      Submit
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

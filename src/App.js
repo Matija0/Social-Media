@@ -1,14 +1,16 @@
-import Navbar from "./components/Navbar";
+import { Route, Routes } from "react-router";
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
-import Feed from "./pages/Feed/Feed";
-
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Feed />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
     </div>
   );
 }

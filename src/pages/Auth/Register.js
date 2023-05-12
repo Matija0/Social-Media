@@ -1,16 +1,15 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Register = () => {
-    return (
-        <div className=" bg-none py-6 flex flex-col justify-center sm:py-12">
+  return (
+    <div className=" bg-none py-6 flex flex-col justify-center sm:py-12">
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
         <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
           <div className="max-w-md mx-auto">
             <div>
-              <h1 className="text-2xl font-semibold">
-                Register
-              </h1>
+              <h1 className="text-2xl font-semibold">Register</h1>
             </div>
             <div className="divide-y divide-gray-200">
               <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
@@ -79,9 +78,21 @@ const Register = () => {
                   </label>
                 </div>
                 <div className="relative">
-                  <button className="bg-blue-500 text-white rounded-md px-2 py-1 hover:bg-blue-600">
-                    Submit
-                  </button>
+                  <p>
+                    Already have an acconut{" "}
+                    <Link to="/login">
+                      <span className="text-blue-500 hover:text-blue-600">
+                        Login here!
+                      </span>
+                    </Link>
+                  </p>
+                </div>
+                <div className="relative">
+                  <Link to="/login">
+                    <button className="bg-blue-500 text-white rounded-md px-2 py-1 hover:bg-blue-600">
+                      Submit
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -89,7 +100,7 @@ const Register = () => {
         </div>
       </div>
     </div>
-    )
-}
+  );
+};
 
-export default Register
+export default Register;
