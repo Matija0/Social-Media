@@ -36,7 +36,7 @@ const FeedComponent = () => {
               setIsFollowed((val) => !val);
             }}
           >
-             <i class="bi bi-check-all"></i>
+            <i className="bi bi-check-all"></i>
           </button>
         ) : (
           <button
@@ -70,7 +70,7 @@ const FeedComponent = () => {
                 setIsLiked((val) => !val);
               }}
             >
-              <i class="bi bi-hand-thumbs-up-fill"></i>{" "}
+              <i className="bi bi-hand-thumbs-up-fill"></i>{" "}
               <span className="text-xl"></span>
             </button>
           ) : (
@@ -80,7 +80,7 @@ const FeedComponent = () => {
                 setIsLiked((val) => !val);
               }}
             >
-              <i class="bi bi-hand-thumbs-up"></i>
+              <i className="bi bi-hand-thumbs-up"></i>
             </button>
           )}
 
@@ -89,7 +89,7 @@ const FeedComponent = () => {
             onClick={onOpen}
           >
             <span className="text-xl">0</span>{" "}
-            <i class="bi bi-chat-square-text"></i>
+            <i className="bi bi-chat-square-text"></i>
           </button>
         </div>
         <div className=" my-2">

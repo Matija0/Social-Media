@@ -14,13 +14,17 @@ import {
   MenuItem,
 } from "@chakra-ui/react";
 import Message from "./Message";
+import { useNavigate } from "react-router";
 
 const Navbar = () => {
-  return (
-    <div
+  const navigate = useNavigate();
+  const logout = () => {
+    window.localStorage.removeItem("token");
+    navigate("/login");
+  };
 
-      className="nav-el flex  h-14 py-2 items-center px-7 bg-white justify-between"
-    >
+  return (
+    <div className="nav-el flex  h-14 py-2 items-center px-7 bg-white justify-between">
       <div className="flex flex-row items-center gap-2">
         <img
           style={{ width: "100px", height: "100px" }}
@@ -30,9 +34,10 @@ const Navbar = () => {
         <input
           className="bg-gray-200 hidden py-2 px-1 focus:outline-none rounded-lg ml-3 md:block"
           placeholder="Search for people..."
+          id="search"
         />
         <button>
-          <i class="bi bi-search"></i>
+          <i className="bi bi-search"></i>
         </button>
       </div>
       <div className="flex flex-row gap-4 items-center justify-end">
@@ -40,7 +45,7 @@ const Navbar = () => {
         <Popover isLazy>
           <PopoverTrigger>
             <button className="text-xl">
-              <i class="bi bi-bell"></i>
+              <i className="bi bi-bell"></i>
             </button>
           </PopoverTrigger>
           <PopoverContent>
@@ -50,7 +55,7 @@ const Navbar = () => {
               <div className="flex flex-row items-center gap-3">
                 <h1 className="font-bold">Notifications</h1>{" "}
                 <span className="text-gray-500">
-                  <i class="bi bi-clock"></i> past hour
+                  <i className="bi bi-clock"></i> past hour
                 </span>
               </div>
             </PopoverHeader>
@@ -63,7 +68,7 @@ const Navbar = () => {
         <Popover>
           <PopoverTrigger>
             <button className="text-xl">
-              <i class="bi bi-chat-dots"></i>
+              <i className="bi bi-chat-dots"></i>
             </button>
           </PopoverTrigger>
           <PopoverContent>
@@ -96,7 +101,7 @@ const Navbar = () => {
             />
           </MenuButton>
           <MenuList>
-            <MenuItem>Sign out</MenuItem>
+            <MenuItem onClick={() => logout()}>Sign out</MenuItem>
             <MenuItem>Settings</MenuItem>
             <MenuItem>My profile</MenuItem>
           </MenuList>

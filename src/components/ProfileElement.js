@@ -18,13 +18,13 @@ const ProfileElement = () => {
       <div className="space-y-1">
         <div className="flex flex-row items-center justify-start gap-2">
           <button className="text-xl text-gray-400">
-            <i class="bi bi-geo-alt"></i>
+            <i className="bi bi-geo-alt"></i>
           </button>
           <span className="text-base text-gray-400">San Diego, CA</span>
         </div>
         <div className="flex flex-row items-center justify-start gap-2">
           <button className="text-xl text-gray-400">
-            <i class="bi bi-briefcase"></i>
+            <i className="bi bi-briefcase"></i>
           </button>
           <span className="text-base text-gray-400">Microsoft CEO</span>
         </div>
