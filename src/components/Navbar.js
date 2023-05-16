@@ -18,7 +18,7 @@ import Message from "./Message";
 const Navbar = () => {
   return (
     <div
-      
+
       className="nav-el flex  h-14 py-2 items-center px-7 bg-white justify-between"
     >
       <div className="flex flex-row items-center gap-2">
@@ -73,10 +73,12 @@ const Navbar = () => {
               <h1 className="font-bold text-blue-950">Your messages</h1>
             </PopoverHeader>
             <PopoverBody>
-              <div className=" space-y-4">
-             <Message/>
-             <Message/>
-             </div>
+              <div>
+                <Message />
+              </div>
+              <div>
+                <Message />
+              </div>
             </PopoverBody>
           </PopoverContent>
         </Popover>
