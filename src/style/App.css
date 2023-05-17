@@ -9,13 +9,17 @@
    
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 .nav-el {
     position: fixed;
     top: 0;
     width: 100%;
 }
 
-#feed-el{
+#container{
     max-width: 1440px;
 }
 

@@ -5,7 +5,7 @@ import Feed from "./Feed/Feed";
 const Home = () => {
   return (
     <div className="App">
-      <Navbar />
+
       <Feed />
     </div>
   );

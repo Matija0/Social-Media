@@ -78,10 +78,9 @@ const Navbar = () => {
               <h1 className="font-bold text-blue-950">Your messages</h1>
             </PopoverHeader>
             <PopoverBody>
-              <div>
+              <div className=" space-y-2">
                 <Message />
-              </div>
-              <div>
+                <hr className=" w-full" />
                 <Message />
               </div>
             </PopoverBody>
@@ -93,6 +92,7 @@ const Navbar = () => {
             bg="none"
             _hover={{ bg: "none" }}
             _expanded={{ bg: "none" }}
+
           >
             <img
               className=" w-8 h-8"

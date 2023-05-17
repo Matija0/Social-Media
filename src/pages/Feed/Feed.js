@@ -11,7 +11,7 @@ import FriendList from "../../components/FriendList";
 const Feed = () => {
   return (
     <div
-      id="feed-el"
+      id="container"
       className=" mx-0 mt-8 pt-14 flex flex-col gap-5 md:flex-row md:mx-12"
     >
       <div id="left-el">
@@ -30,9 +30,7 @@ const Feed = () => {
       </div>
       <div id="right-el">
         <FriendList />
-        <div className="mt-5">
-          <Suggested />
-        </div>
+
       </div>
     </div>
   );

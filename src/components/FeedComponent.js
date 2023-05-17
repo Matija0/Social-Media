@@ -16,7 +16,7 @@ const FeedComponent = () => {
   const [isFollowed, setIsFollowed] = useState(false);
 
   return (
-    <div className="feed-item bg-white rounded-lg py-2 px-3">
+    <div className="feed-item bg-white rounded-lg py-2 px-3 shadow-lg">
       <div className="flex flex-row justify-between items-center px-3">
         <div className="flex flex-row items-center justify-center gap-2">
           <img
