@@ -36,7 +36,7 @@ const PostInput = () => {
     const fileUrl = uploader.url(filePath, "thumbnail") // "raw" for un-transformed file.
     return (
       <p key={fileUrl}>
-        <a href={fileUrl} target="_blank"><img className=" w-11 h-7" src={fileUrl} /></a>
+        <a href={fileUrl} target="_blank"><img className=" w-11 h-7 rounded-lg" src={fileUrl} /></a>
       </p>
     );
   })
