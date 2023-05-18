@@ -40,10 +40,7 @@ const ProfileElement = () => {
           <h2 className="text-base text-gray-400">Total likes</h2>
           <span className=" font-bold">50</span>
         </div>
-        <div className="flex flex-row items-center justify-between gap-2">
-          <h2 className="text-base text-gray-400">Total dislikes</h2>
-          <span className=" font-bold">12</span>
-        </div>
+
       </div>
     </div>
   );

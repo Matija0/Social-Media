@@ -13,10 +13,20 @@ html {
     scroll-behavior: smooth;
   }
 
-.nav-el {
+  
+#nav-el {
     position: fixed;
     top: 0;
     width: 100%;
+    background: white;
+}
+
+#nav-change {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    
+    backdrop-filter: blur(10px);
 }
 
 #container{
@@ -33,6 +43,17 @@ html {
 
 #right-el{
     width: 30%;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 768px) {

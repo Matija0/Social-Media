@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Popover,
   PopoverTrigger,
@@ -23,8 +23,23 @@ const Navbar = () => {
     navigate("/login");
   };
 
+  const [show, handleSHow] = useState(false);
+
+  const transitionNavBar = () => {
+    if (window.scrollY > 150) {
+      handleSHow(true);
+    } else {
+      handleSHow(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", transitionNavBar);
+    return () => window.removeEventListener("scroll", transitionNavBar);
+  }, []);
+
   return (
-    <div className="nav-el flex  h-14 py-2 items-center px-7 bg-white justify-between">
+    <div id={show ? ("nav-change") : ("nav-el")} className="flex  h-14 py-2 items-center px-7 justify-between">
       <div className="flex flex-row items-center gap-2">
         <img
           style={{ width: "100px", height: "100px" }}
@@ -40,7 +55,7 @@ const Navbar = () => {
           <i className="bi bi-search"></i>
         </button>
       </div>
-      <div className="flex flex-row gap-4 items-center justify-end">
+      <div className="flex flex-row gap-7 items-center justify-end">
         {/*Notifications */}
         <Popover isLazy>
           <PopoverTrigger>
@@ -92,10 +107,14 @@ const Navbar = () => {
             bg="none"
             _hover={{ bg: "none" }}
             _expanded={{ bg: "none" }}
+            padding={0}
+            height={"fit-content"}
+            width={"fit-content"}
+            borderRadius={"50%"}
 
           >
             <img
-              className=" w-8 h-8"
+              className=" w-9 h-9"
               src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
               alt="profile"
             />
