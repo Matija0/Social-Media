@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import Message from "./Message";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -41,11 +42,13 @@ const Navbar = () => {
   return (
     <div id={show ? ("nav-change") : ("nav-el")} className="flex  h-14 py-2 items-center px-7 justify-between">
       <div className="flex flex-row items-center gap-2">
-        <img
-          style={{ width: "100px", height: "100px" }}
-          src={process.env.PUBLIC_URL + "/images/Logo.png"}
-          alt="logo"
-        />
+        <Link to={"/"}>
+          <img
+            style={{ width: "100px", height: "100px" }}
+            src={process.env.PUBLIC_URL + "/images/Logo.png"}
+            alt="logo"
+          />
+        </Link>
         <input
           className="bg-gray-200 hidden py-2 px-1 focus:outline-none rounded-lg ml-3 md:block"
           placeholder="Search for people..."
@@ -122,7 +125,7 @@ const Navbar = () => {
           <MenuList>
             <MenuItem onClick={() => logout()}>Sign out</MenuItem>
             <MenuItem>Settings</MenuItem>
-            <MenuItem>My profile</MenuItem>
+            <Link to="/userprofile"> <MenuItem>My profile</MenuItem></Link>
           </MenuList>
         </Menu>
       </div>

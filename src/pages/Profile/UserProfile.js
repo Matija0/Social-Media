@@ -4,11 +4,11 @@ import FriendList from '../../components/FriendList'
 const UserProfile = () => {
     return (
         <div id="container" className='bg-white pt-14 pb-11'>
-
-            <img src='https://wallpapercave.com/wp/wp5600948.jpg' className=' w-full h-72 relative' alt='' />
-
-
             <div>
+                <img src='https://wallpapercave.com/wp/wp5600948.jpg' className=' w-full h-72 relative' alt='' />
+
+
+
 
                 <img src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png' className=' rounded-full w-28 h-28 absolute top-64 left-28' />
 

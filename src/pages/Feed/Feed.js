@@ -22,7 +22,7 @@ const Feed = () => {
       </div>
       <div id="center-el" className="flex flex-col gap-5">
         <PostInput />
-        <Stories />
+
         <FeedComponent />
         <FeedComponent />
         <FeedComponent />
