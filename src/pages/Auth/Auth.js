@@ -18,9 +18,9 @@ export default function handler(req, res) {
         res.send("error");
       }
     } else {
-      if (!check_user) res.send({ message: "username dont exist!" });
+      if (!check_user) res.send({ message: "Username doesn't exists!" });
       else if (!user || !pass) {
-        res.send({ message: "inster all data" });
+        res.send({ message: "Please insret all data" });
       }
     }
   };

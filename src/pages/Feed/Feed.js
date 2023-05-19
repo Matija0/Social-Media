@@ -2,8 +2,6 @@ import React from "react";
 import FeedComponent from "../../components/FeedComponent";
 import PostInput from "../../components/PostInput";
 import ProfileElement from "../../components/ProfileElement";
-
-import Suggested from "../../components/Suggested";
 import Stories from "../../components/Stories";
 import Ads from "../../components/Ads";
 import FriendList from "../../components/FriendList";
@@ -22,15 +20,11 @@ const Feed = () => {
       </div>
       <div id="center-el" className="flex flex-col gap-5">
         <PostInput />
-
-        <FeedComponent />
-        <FeedComponent />
-        <FeedComponent />
+        <Stories />
         <FeedComponent />
       </div>
       <div id="right-el">
         <FriendList />
-
       </div>
     </div>
   );

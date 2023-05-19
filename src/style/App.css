@@ -6,14 +6,14 @@
 .App {
     background-color: #e9ecef;
     min-height: 100vh;
-   
+
 }
 
 html {
     scroll-behavior: smooth;
-  }
+}
 
-  
+
 #nav-el {
     position: fixed;
     top: 0;
@@ -25,23 +25,22 @@ html {
     position: fixed;
     top: 0;
     width: 100%;
-    
     backdrop-filter: blur(10px);
 }
 
-#container{
+#container {
     max-width: 1440px;
 }
 
-#left-el{
+#left-el {
     width: 30%;
 }
 
-#center-el{
+#center-el {
     width: 60%;
 }
 
-#right-el{
+#right-el {
     width: 30%;
 }
 
@@ -50,22 +49,22 @@ input[type="file"] {
 }
 
 .custom-file-upload {
-    
+
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
 }
 
 @media only screen and (max-width: 768px) {
-    #left-el{
+    #left-el {
         width: 100%;
     }
-    
-    #center-el{
+
+    #center-el {
         width: 100%;
     }
-    
-    #right-el{
+
+    #right-el {
         width: 100%;
     }
-  }
+}

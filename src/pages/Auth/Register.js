@@ -6,7 +6,7 @@ import { BASEURL } from "../../api/BaseUrl";
 const Register = () => {
   const [email, setEmail] = useState();
   const [username, setUsername] = useState();
-  const [user_name, setUser_name] = useState();
+  const [name, setName] = useState();
   const [role_id] = useState(1);
   const [verified_email] = useState(1);
   const [password, setPassword] = useState();
@@ -14,7 +14,7 @@ const Register = () => {
   const registerUser = (event) => {
     event.preventDefault();
     const params = {
-      user_name: user_name,
+      name: name,
       email: email,
       username: username,
       password: password,
@@ -29,7 +29,7 @@ const Register = () => {
       .catch((e) => {
         console.log(e);
       });
-    console.log("success");
+    console.log("Successful registration");
   };
 
   return (
@@ -89,7 +89,7 @@ const Register = () => {
                     type="text"
                     className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
                     placeholder="Full Name"
-                    onChange={(e) => setUser_name(e.target.value)}
+                    onChange={(e) => setName(e.target.value)}
                   />
                   <label
                     htmlFor="user_name"
