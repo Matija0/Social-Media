@@ -6,9 +6,11 @@ import UserProfile from "./pages/Profile/UserProfile";
 import Navbar from "./components/Navbar";
 
 function App() {
+  const token = window.localStorage.getItem("token")
+
   return (
     <div className="App">
-      <Navbar />
+      {token ? (<Navbar />) : null}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

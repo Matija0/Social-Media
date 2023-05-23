@@ -22,6 +22,7 @@ const Navbar = () => {
   const logout = () => {
     window.localStorage.removeItem("token");
     navigate("/login");
+    window.location.reload()
   };
 
   const [show, handleSHow] = useState(false);

@@ -62,15 +62,16 @@ const FeedComponent = (props) => {
         )}
       </div>
       <div className="">
-        <div className="flex flex-row justify-between items-center">
-          <p className="text-base my-4">{props.item.content}</p>
-          <small className="text-sm text-gray-400">{props.item.createdAt}</small>
-        </div>
+
+        <p className="text-base my-4">{props.item.content}</p>
+
+
         <img
           className=" w-full rounded-lg"
           src={props.item.picture}
           alt="Post photo"
         />
+        <div className="text-sm text-gray-400 mt-3 ml-auto w-fit self-end">{props.item.createdAt}</div>
         <div className="flex flex-row gap-2 mt-3 items-center">
           {isLiked ? (
             <button

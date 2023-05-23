@@ -47,7 +47,7 @@ const PostInput = () => {
         </p>
       );
     });
-  const [files, setFiles] = useState("");
+  const [files, setFiles] = useState(0);
   const [content, setContent] = useState("")
   const userId = 1
   const date = new Date()

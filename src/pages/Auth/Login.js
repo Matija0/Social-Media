@@ -19,11 +19,13 @@ const Login = () => {
         if (res.data.token) {
           localStorage.setItem("token", res.data.token);
           navigate("/");
+          window.location.reload()
         } else {
           console.log(res.data);
         }
+
       })
-    alert("Logged in")
+
       .catch((e) => {
         console.log(e);
       });
