@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Uploader } from "uploader"; // Installed by "react-uploader".
 import { UploadButton } from "react-uploader";
+import axios from "axios";
+import { BASEURL } from "../api/BaseUrl";
 
 const PostInput = () => {
   const uploader = Uploader({
@@ -45,21 +47,50 @@ const PostInput = () => {
         </p>
       );
     });
-  const [files, setFiles] = useState([]);
-  const [setText] = useState("");
+  const [files, setFiles] = useState("");
+  const [content, setContent] = useState("")
+  const userId = 1
+  const date = new Date()
+
+  const sendData = async () => {
+    const params = {
+      content: content,
+      picture: files[0].fileUrl,
+      createdAt: date,
+      userId: userId
+    }
+    try {
+      await axios.post(BASEURL + "/api/post/post", params)
+        .then((res) => {
+          console.log(res.data)
+        })
+      alert("Success")
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
-  };
 
+    sendData()
+
+  };
+  useEffect(() => {
+
+
+  }, [])
   return (
     <div className=" bg-white  py-3 px-4  rounded-lg">
+
       <form onSubmit={handleSubmit}>
         <div className="flex flex-row ">
           <input
             className=" bg-gray-200 w-full py-3 px-1 focus:outline-none rounded-lg"
             placeholder="What's on your mind"
             id="post"
-            onChange={(e) => setText(e.target.value)}
+            name="text"
+            onChange={(e) => setContent(e.target.value)}
           />
         </div>
         <div className="flex flex-row gap-3 justify-between items-center mt-4">

@@ -5,8 +5,28 @@ import ProfileElement from "../../components/ProfileElement";
 import Stories from "../../components/Stories";
 import Ads from "../../components/Ads";
 import FriendList from "../../components/FriendList";
+import { useEffect } from "react";
+import { useState } from "react";
+import { BASEURL } from "../../api/BaseUrl";
+import axios from "axios";
 
 const Feed = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const fetchPost = () => {
+    axios
+      .get(BASEURL + "/api/post/get")
+      .then((res) => {
+        setData(res.data);
+        setLoading(false);
+      })
+      .catch((e) => console.log(e));
+  };
+
+  useEffect(() => {
+    fetchPost();
+  }, []);
+
   return (
     <div
       id="container"
@@ -21,7 +41,18 @@ const Feed = () => {
       <div id="center-el" className="flex flex-col gap-5">
         <PostInput />
         <Stories />
-        <FeedComponent />
+        {
+          data.map((item) => {
+            return (
+              <div key={item.id}>
+                <FeedComponent
+                  item={item}
+                />
+              </div>
+            )
+
+          })
+        }
       </div>
       <div id="right-el">
         <FriendList />
