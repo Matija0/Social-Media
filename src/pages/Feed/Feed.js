@@ -41,18 +41,13 @@ const Feed = () => {
       <div id="center-el" className="flex flex-col gap-5">
         <PostInput />
         <Stories />
-        {
-          data.map((item) => {
-            return (
-              <div key={item.id}>
-                <FeedComponent
-                  item={item}
-                />
-              </div>
-            )
-
-          })
-        }
+        {data.map((item) => {
+          return (
+            <div key={item.id}>
+              <FeedComponent item={item} loading={loading} />
+            </div>
+          );
+        })}
       </div>
       <div id="right-el">
         <FriendList />

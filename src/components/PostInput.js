@@ -48,41 +48,33 @@ const PostInput = () => {
       );
     });
   const [files, setFiles] = useState(0);
-  const [content, setContent] = useState("")
-  const userId = 1
-  const date = new Date()
-
+  const [content, setContent] = useState("");
+  const userId = 1;
+  const date = new Date();
   const sendData = async () => {
     const params = {
       content: content,
       picture: files[0].fileUrl,
       createdAt: date,
-      userId: userId
-    }
+      userId: userId,
+    };
     try {
-      await axios.post(BASEURL + "/api/post/post", params)
-        .then((res) => {
-          console.log(res.data)
-        })
-      alert("Success")
+      await axios.post(BASEURL + "/api/post/post", params).then((res) => {
+        console.log(res.data);
+      });
+      alert("Success");
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
-  }
-
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    sendData()
-
+    sendData();
   };
-  useEffect(() => {
+  useEffect(() => {}, []);
 
-
-  }, [])
   return (
     <div className=" bg-white  py-3 px-4  rounded-lg">
-
       <form onSubmit={handleSubmit}>
         <div className="flex flex-row ">
           <input

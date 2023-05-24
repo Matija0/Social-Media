@@ -5,8 +5,8 @@ import axios from "axios";
 const Stories = () => {
   const [story, setStory] = useState([]);
   const [loading, isLoading] = useState(true);
-  const fetchSingleStory = () => {
-    axios
+  const fetchSingleStory = async () => {
+    await axios
       .get(BASEURL + "/api/stories/get")
       .then((res) => {
         setStory(res.data);

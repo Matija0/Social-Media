@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -10,25 +10,13 @@ import {
 } from "@chakra-ui/react";
 import Comment from "./Comment";
 
-
 const FeedComponent = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isLiked, setIsLiked] = useState(false);
   const [isFollowed, setIsFollowed] = useState(false);
 
-
-
-
-
-
   return (
-
-
-
-    <div
-      className="feed-item bg-white rounded-lg py-2 px-3 shadow-lg"
-
-    >
+    <div className="feed-item bg-white rounded-lg py-2 px-3 shadow-lg">
       <div className="flex flex-row justify-between items-center px-3">
         <div className="flex flex-row items-center justify-center gap-2">
           <img
@@ -62,16 +50,15 @@ const FeedComponent = (props) => {
         )}
       </div>
       <div className="">
-
         <p className="text-base my-4">{props.item.content}</p>
-
-
         <img
           className=" w-full rounded-lg"
           src={props.item.picture}
-          alt="Post photo"
+          alt="Post"
         />
-        <div className="text-sm text-gray-400 mt-3 ml-auto w-fit self-end">{props.item.createdAt}</div>
+        <div className="text-sm text-gray-400 mt-3 ml-auto w-fit self-end">
+          {props.item.createdAt}
+        </div>
         <div className="flex flex-row gap-2 mt-3 items-center">
           {isLiked ? (
             <button
@@ -93,7 +80,6 @@ const FeedComponent = (props) => {
               <i className="bi bi-hand-thumbs-up"></i>
             </button>
           )}
-
           <button
             className="text-2xl text-blue-500 ml-auto flex flex-row items-center justify-center gap-1"
             onClick={onOpen}
@@ -105,8 +91,7 @@ const FeedComponent = (props) => {
         <div className=" my-2">
           <h3 className="font-bold text-sm">
             <span className=" font-normal text-gray-600">Liked by </span>
-            Jane Doe{" "}
-            <span className=" font-normal text-gray-600">and </span> 45
+            Jane Doe <span className=" font-normal text-gray-600">and </span> 45
             others
           </h3>
         </div>
@@ -123,9 +108,6 @@ const FeedComponent = (props) => {
       </Modal>
     </div>
   );
-
-
-
 };
 
 export default FeedComponent;
