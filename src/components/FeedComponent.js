@@ -59,7 +59,7 @@ const FeedComponent = (props) => {
         <div className="text-sm text-gray-400 mt-3 ml-auto w-fit self-end">
           {props.item.createdAt}
         </div>
-        <div className="flex flex-row gap-2 mt-3 items-center">
+        <div className="flex flex-row gap-2 mt-3 items-center justify-center">
           {isLiked ? (
             <button
               className="text-2xl text-blue-500"

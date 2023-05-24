@@ -71,7 +71,7 @@ const PostInput = () => {
     event.preventDefault();
     sendData();
   };
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   return (
     <div className=" bg-white  py-3 px-4  rounded-lg">

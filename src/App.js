@@ -4,20 +4,25 @@ import Register from "./pages/Auth/Register";
 import Home from "./pages/Home";
 import UserProfile from "./pages/Profile/UserProfile";
 import Navbar from "./components/Navbar";
+import { QueryClient, QueryClientProvider } from "react-query";
 
+
+const queryClient = new QueryClient({});
 function App() {
   const token = window.localStorage.getItem("token")
 
   return (
-    <div className="App">
-      {token ? (<Navbar />) : null}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/userprofile" element={<UserProfile />} />
-      </Routes>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className="App">
+        {token ? (<Navbar />) : null}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/userprofile" element={<UserProfile />} />
+        </Routes>
+      </div>
+    </QueryClientProvider>
   );
 }
 
