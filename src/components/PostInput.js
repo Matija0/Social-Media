@@ -4,6 +4,7 @@ import { UploadButton } from "react-uploader";
 import axios from "axios";
 import { BASEURL } from "../api/BaseUrl";
 import { useQuery } from "react-query";
+import { useGetUserID } from "../helpers/GetUserID";
 
 const PostInput = () => {
   const uploader = Uploader({
@@ -49,10 +50,10 @@ const PostInput = () => {
       );
     });
 
-
+  const userId = useGetUserID();
   const [files, setFiles] = useState(0);
   const [content, setContent] = useState("");
-  const userId = 1;
+
   const date = new Date();
   const sendData = async () => {
     const params = {
@@ -73,7 +74,7 @@ const PostInput = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     sendData();
-    window.location.reload()
+
   };
 
 
