@@ -14,13 +14,20 @@ import { useQuery } from "react-query";
 import LoaderTriangle from "../../components/LoaderTriangle";
 
 const Feed = () => {
-  const { data: post, isLoading, isFetching, isError } = useQuery("post", () => axios.get(BASEURL + "/api/post/get").then(resp => resp.data));
+  const {
+    data: post,
+    isLoading,
+    isFetching,
+    isError,
+  } = useQuery("post", () =>
+    axios.get(BASEURL + "/api/post/get").then((resp) => resp.data)
+  );
   if (isLoading || isFetching) {
     return (
       <div className="loader-t">
         <LoaderTriangle />
       </div>
-    )
+    );
   }
   return (
     <div
@@ -46,8 +53,6 @@ const Feed = () => {
       </div>
       <div id="right-el">
         <FriendList />
-
-
       </div>
     </div>
   );

@@ -6,14 +6,12 @@
 .App {
     background-color: #e9ecef;
     min-height: 100vh;
-    padding-bottom: 20px;
-
 }
 
 html {
     scroll-behavior: smooth;
     overflow: hidden;
-    
+
 }
 
 
@@ -34,6 +32,7 @@ html {
 
 #container {
     max-width: 1440px;
+    padding-top: 5em;
 }
 
 #left-el {
@@ -64,7 +63,7 @@ html {
     overflow: scroll;
     scrollbar-width: none;
     padding-bottom: 50px;
-    
+
 }
 
 input[type="file"] {
@@ -78,7 +77,7 @@ input[type="file"] {
     cursor: pointer;
 }
 
-.loader-t{
+.loader-t {
     display: flex;
     justify-content: center;
     align-items: center;
