@@ -15,7 +15,6 @@ const FeedComponent = (props) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isFollowed, setIsFollowed] = useState(false);
 
-
   return (
     <div className="feed-item bg-white rounded-lg py-2 px-3 shadow-lg">
       <div className="flex flex-row justify-between items-center px-3">
@@ -26,7 +25,7 @@ const FeedComponent = (props) => {
             className=" w-11 h-11 rounded-full"
           />
           <div>
-            <h1 className="text-black text-lg">John Doe</h1>
+            <h1 className="text-black text-lg">{props.item?.user?.username}</h1>
             <span className=" text-gray-400 text-sm">San Diego, CA</span>
           </div>
         </div>
