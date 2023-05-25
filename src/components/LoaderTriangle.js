@@ -1,11 +1,11 @@
 import React from 'react'
-
-const LoaderSmal = () => {
+import { Triangle } from 'react-loader-spinner'
+const LoaderTriangle = () => {
     return (
         <Triangle
-            height="80"
-            width="80"
-            color="#4fa94d"
+            height="150"
+            width="150"
+            color="#0284c7"
             ariaLabel="triangle-loading"
             wrapperStyle={{}}
             wrapperClassName=""
@@ -14,4 +14,4 @@ const LoaderSmal = () => {
     )
 }
 
-export default LoaderSmal
+export default LoaderTriangle

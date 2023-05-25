@@ -12,6 +12,8 @@
 
 html {
     scroll-behavior: smooth;
+    overflow: hidden;
+    
 }
 
 
@@ -20,6 +22,7 @@ html {
     top: 0;
     width: 100%;
     background: white;
+    z-index: 1;
 }
 
 #nav-change {
@@ -35,14 +38,33 @@ html {
 
 #left-el {
     width: 30%;
+    position: sticky;
+    top: 60px;
+    height: calc(100vh - 60px);
+    overflow: scroll;
+    scrollbar-width: none;
+    padding-bottom: 50px;
 }
 
 #center-el {
     width: 60%;
+    position: sticky;
+    top: 60px;
+    height: calc(100vh - 60px);
+    overflow: scroll;
+    scrollbar-width: none;
+    padding-bottom: 50px;
 }
 
 #right-el {
     width: 30%;
+    position: sticky;
+    top: 60px;
+    height: calc(100vh - 60px);
+    overflow: scroll;
+    scrollbar-width: none;
+    padding-bottom: 50px;
+    
 }
 
 input[type="file"] {
@@ -54,6 +76,13 @@ input[type="file"] {
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
+}
+
+.loader-t{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 500px;
 }
 
 @media only screen and (max-width: 768px) {

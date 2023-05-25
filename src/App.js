@@ -7,9 +7,20 @@ import Navbar from "./components/Navbar";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 
-const queryClient = new QueryClient({});
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchOnmount: false,
+      refetchOnReconnect: false,
+      retry: false,
+
+    },
+  },
+});
 function App() {
   const token = window.localStorage.getItem("token")
+
 
   return (
     <QueryClientProvider client={queryClient}>

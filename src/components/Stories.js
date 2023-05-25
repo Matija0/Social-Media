@@ -3,6 +3,7 @@ import { BASEURL } from "../api/BaseUrl";
 import axios, { Axios } from "axios";
 import { useQuery } from "react-query";
 import useApi from "../api/useApi";
+import LoaderOval from "./LoaderOval";
 
 
 const Stories = () => {
@@ -13,14 +14,14 @@ const Stories = () => {
   if (isLoading || isFetching) {
     return (
       <>
-        <div>Loading...</div>
+        <LoaderOval />
       </>
     )
 
   }
   console.log(story)
   return (
-    <div className="flex flex-row justify-between gap-4 bg-white h-fit py-2 px-4">
+    <div className="flex flex-row  gap-4 bg-white h-fit py-2 px-4">
       <button className="cursor-default">
         <img
           src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
@@ -33,7 +34,7 @@ const Stories = () => {
       {story != undefined ? story.map((item, index) => (
         <div>
           <img src={item.picture} className="h-14 w-14" />
-          <h2 className="font-bold text-sm justify-center">{item.userId}</h2>
+          <h2 className="font-bold text-sm text-center">{item.userId}</h2>
         </div>
       )) : null}
     </div>

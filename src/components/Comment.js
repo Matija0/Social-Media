@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 
 import { BASEURL } from "../api/BaseUrl";
 import { useQuery } from "react-query";
+import LoaderOval from "./LoaderOval";
 
 const Comment = (props) => {
   const [content, setContent] = useState();
@@ -30,9 +31,7 @@ const Comment = (props) => {
   if (isLoading || isFetching) {
     return (
       <>
-        <div>
-          Loading...
-        </div>
+        <LoaderOval />
       </>
     )
   }

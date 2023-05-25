@@ -3,6 +3,7 @@ import { Uploader } from "uploader"; // Installed by "react-uploader".
 import { UploadButton } from "react-uploader";
 import axios from "axios";
 import { BASEURL } from "../api/BaseUrl";
+import { useQuery } from "react-query";
 
 const PostInput = () => {
   const uploader = Uploader({
@@ -39,7 +40,7 @@ const PostInput = () => {
         <p key={fileUrl}>
           <a href={fileUrl} target="_blank" rel="noreferrer">
             <img
-              className=" w-11 h-7 rounded-lg"
+              className=" w-10 h-10 rounded-lg"
               src={fileUrl}
               alt="postimage"
             />
@@ -47,6 +48,8 @@ const PostInput = () => {
         </p>
       );
     });
+
+
   const [files, setFiles] = useState(0);
   const [content, setContent] = useState("");
   const userId = 1;
@@ -70,8 +73,9 @@ const PostInput = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     sendData();
+    window.location.reload()
   };
-  useEffect(() => { }, []);
+
 
   return (
     <div className=" bg-white  py-3 px-4  rounded-lg">

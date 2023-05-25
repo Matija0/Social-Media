@@ -11,14 +11,15 @@ import { useState } from "react";
 import { BASEURL } from "../../api/BaseUrl";
 import axios from "axios";
 import { useQuery } from "react-query";
+import LoaderTriangle from "../../components/LoaderTriangle";
 
 const Feed = () => {
   const { data: post, isLoading, isFetching, isError } = useQuery("post", () => axios.get(BASEURL + "/api/post/get").then(resp => resp.data));
   if (isLoading || isFetching) {
     return (
-      <>
-        <div>Loading...</div>
-      </>
+      <div className="loader-t">
+        <LoaderTriangle />
+      </div>
     )
   }
   return (
@@ -45,6 +46,8 @@ const Feed = () => {
       </div>
       <div id="right-el">
         <FriendList />
+
+
       </div>
     </div>
   );
