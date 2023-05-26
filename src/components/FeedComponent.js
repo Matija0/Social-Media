@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios"
 import {
   Modal,
   ModalOverlay,
@@ -7,16 +8,43 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  ModalFooter,
 } from "@chakra-ui/react";
 import Comment from "./Comment";
+import { BASEURL } from "../api/BaseUrl";
+import { useGetUserID } from "../helpers/GetUserID";
+import { useGetTheme } from "../helpers/GetTheme";
 
 const FeedComponent = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isLiked, setIsLiked] = useState(false);
   const [isFollowed, setIsFollowed] = useState(false);
+  const theme=useGetTheme()
+
+  //comment post
+  const [content, setContent] = useState();
+  const userId=useGetUserID()
+  const [postId] = useState(3);
+  const postComment = (event) => {
+    event.preventDefault();
+    const params = {
+      content: content,
+      userId: userId,
+      postId: postId,
+    };
+    axios
+      .post(BASEURL + "/api/comment/post", params)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    setContent("");
+  };
 
   return (
-    <div className="feed-item bg-white rounded-lg py-2 px-3 shadow-lg">
+    <div className={theme==="light"? ("feed-item bg-white rounded-lg py-2 px-3 shadow-lg") : ("feed-item bg-zinc-800 rounded-lg py-2 px-3 shadow-lg text-gray-300")}>
       <div className="flex flex-row justify-between items-center px-3">
         <div className="flex flex-row items-center justify-center gap-2">
           <img
@@ -25,7 +53,7 @@ const FeedComponent = (props) => {
             className=" w-11 h-11 rounded-full"
           />
           <div>
-            <h1 className="text-black text-lg">{props.item?.user?.username}</h1>
+            <h1 className="text-lg">{props.item?.user?.username}</h1>
             <span className=" text-gray-400 text-sm">San Diego, CA</span>
           </div>
         </div>
@@ -98,12 +126,27 @@ const FeedComponent = (props) => {
       </div>
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent >
+          <div className={theme==="light"? ("bg-white"): ("bg-zinc-800 text-gray-300")}>
           <ModalHeader>Comments</ModalHeader>
           <ModalCloseButton />
-          <ModalBody paddingX={0}>
+          <ModalBody padding={0}>
             <Comment />
           </ModalBody>
+          <ModalFooter paddingX={0} paddingTop={0}> 
+          <form className=" border-t border-gray-300 w-full" onSubmit={postComment}>
+        <input
+          type="text"
+          placeholder="Post a comment..."
+          className={theme==="light"? (" outline-none w-full pt-2 px-2") : (" bg-zinc-800 text-gray-300 outline-none w-full pt-2 px-2")}
+          value={content}
+          onChange={(e) => {
+            setContent(e.target.value);
+          }}
+        />
+      </form>
+          </ModalFooter>
+          </div>
         </ModalContent>
       </Modal>
     </div>

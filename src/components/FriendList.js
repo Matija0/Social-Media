@@ -1,8 +1,10 @@
 import React from "react";
+import { useGetTheme } from "../helpers/GetTheme";
 
 const FriendList = () => {
+  const theme=useGetTheme()
   return (
-    <div className="bg-white h-fit rounded-lg py-2 px-3 space-y-4">
+    <div className={theme==="light"? ("bg-white h-fit rounded-lg py-2 px-3 space-y-4"): ("bg-zinc-800 h-fit rounded-lg py-2 px-3 space-y-4 text-gray-300")}>
       <div className="flex flex-row items-center">
         <h1 className="text-lg font-bold mb-2">Friends</h1>
       </div>

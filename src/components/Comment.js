@@ -4,29 +4,16 @@ import React, { useEffect, useState } from "react";
 import { BASEURL } from "../api/BaseUrl";
 import { useQuery } from "react-query";
 import LoaderOval from "./LoaderOval";
+import { useGetTheme } from "../helpers/GetTheme";
 
 const Comment = (props) => {
-  const [content, setContent] = useState();
-  const [userId] = useState(3);
-  const [postId] = useState(3);
-  const postComment = (event) => {
-    event.preventDefault();
-    const params = {
-      content: content,
-      userId: userId,
-      postId: postId,
-    };
-    axios
-      .post(BASEURL + "/api/comment/post", params)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-    setContent("");
-  };
+  
+ const theme=useGetTheme()
 
+ useEffect(()=>{
+
+ },[theme])
+ 
   const {
     data: comment,
     isLoading,
@@ -42,9 +29,9 @@ const Comment = (props) => {
       </>
     );
   }
-
+  
   return (
-    <div className=" pt-2 flex flex-col gap-3">
+    <div id="comment" className=" py-2 flex flex-col gap-3  max-h-96 overflow-y-scroll">
       {comment.map((item) => {
         return (
           <div className="flex flex-row gap-3 px-2" key={item?.postId?.id}>
@@ -53,24 +40,14 @@ const Comment = (props) => {
               src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
               alt=""
             />
-            <div className=" bg-gray-200 py-1 px-1 rounded-lg">
+            <div className={theme==="light"? (" bg-gray-200 py-1 px-2 rounded-lg") : (" bg-zinc-700 py-1 px-2 rounded-lg text-gray-300")}>
               <h1 className="font-bold">{item?.user?.username}</h1>
               <p>{item.content}</p>
             </div>
           </div>
         );
       })}
-      <form className=" border-t border-gray-300 mt-5" onSubmit={postComment}>
-        <input
-          type="text"
-          placeholder="Post a comment..."
-          className=" outline-none w-full py-2 px-2"
-          value={content}
-          onChange={(e) => {
-            setContent(e.target.value);
-          }}
-        />
-      </form>
+      
     </div>
   );
 };

@@ -5,8 +5,10 @@ import axios from "axios";
 import { BASEURL } from "../api/BaseUrl";
 import { useQuery } from "react-query";
 import { useGetUserID } from "../helpers/GetUserID";
-
+import { useGetTheme } from "../helpers/GetTheme";
 const PostInput = () => {
+
+  const theme= useGetTheme()
   const uploader = Uploader({
     apiKey: "public_FW25bKi9hKiRJXVLSG9PTXUHrLQR",
   });
@@ -77,13 +79,13 @@ const PostInput = () => {
 
   };
 
-
+  
   return (
-    <div className=" bg-white  py-3 px-4  rounded-lg">
+    <div className={theme==="light"? (" bg-white  py-3 px-4  rounded-lg") : (" bg-zinc-800  py-3 px-4  rounded-lg")}>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-row ">
           <input
-            className=" bg-gray-200 w-full py-3 px-1 focus:outline-none rounded-lg"
+            className={theme==="light"? (" bg-gray-200 w-full py-3 px-1 focus:outline-none rounded-lg") : (" bg-zinc-700 w-full py-3 px-1 focus:outline-none rounded-lg text-gray-100")}
             placeholder="What's on your mind"
             id="post"
             name="text"

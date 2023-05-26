@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import UserProfile from "./pages/Profile/UserProfile";
 import Navbar from "./components/Navbar";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { useState } from "react";
+import { useEffect } from "react";
 
 
 const queryClient = new QueryClient({
@@ -20,11 +22,13 @@ const queryClient = new QueryClient({
 });
 function App() {
   const token = window.localStorage.getItem("token")
-
-
+  const [theme, setTheme] = useState(
+      localStorage.getItem('theme') || 'light'
+    );
+    
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="App">
+      <div className={`App ${theme}`}>
         {token ? (<Navbar />) : null}
         <Routes>
           <Route path="/" element={<Home />} />

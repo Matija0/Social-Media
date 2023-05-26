@@ -32,7 +32,7 @@ const Feed = () => {
   return (
     <div
       id="container"
-      className=" mx-0 mt-8 pt-14 flex flex-col gap-5 md:flex-row md:mx-12"
+      className=" pt-14 flex flex-col gap-5 md:flex-row "
     >
       <div id="left-el">
         <ProfileElement />

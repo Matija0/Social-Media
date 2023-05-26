@@ -4,12 +4,12 @@ import axios, { Axios } from "axios";
 import { useQuery } from "react-query";
 import useApi from "../api/useApi";
 import LoaderOval from "./LoaderOval";
-
+import { useGetTheme } from "../helpers/GetTheme";
 
 const Stories = () => {
   //const api = useApi()
 
-
+  const theme=useGetTheme()
   const { data: story, isLoading, isFetching, isError } = useQuery("story", () => axios.get(BASEURL + "/api/stories/get").then(resp => resp.data));
   if (isLoading || isFetching) {
     return (
@@ -19,9 +19,11 @@ const Stories = () => {
     )
 
   }
-  console.log(story)
+  
+
+  
   return (
-    <div className="flex flex-row  gap-4 bg-white h-fit py-2 px-4">
+    <div className={theme==="light"? ("flex flex-row  gap-4 bg-white h-fit py-2 px-4") : ("flex flex-row  gap-4 bg-zinc-800 h-fit py-2 px-4 text-gray-300")}>
       <button className="cursor-default">
         <img
           src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"

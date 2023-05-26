@@ -14,12 +14,12 @@ const Register = () => {
   const registerUser = (event) => {
     event.preventDefault();
     const params = {
-      name: name,
-      email: email,
       username: username,
+      email: email,
       password: password,
-      role_id: role_id,
+      name: name,
       verified_email: verified_email,
+      role_id: role_id,
     };
     axios
       .post(BASEURL + "/api/users/register", params)
@@ -29,8 +29,17 @@ const Register = () => {
       .catch((e) => {
         console.log(e);
       });
+     clear("") 
     console.log("Successful registration");
+    
   };
+  
+  const clear = () =>{
+    setEmail("")
+    setUsername("")
+    setName("")
+    setPassword("")
+  }
 
   return (
     <div className=" bg-none py-6 flex flex-col justify-center sm:py-12">
@@ -55,6 +64,7 @@ const Register = () => {
                     type="text"
                     className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
                     placeholder="Email address"
+                    value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <label
@@ -72,6 +82,7 @@ const Register = () => {
                     type="text"
                     className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
                     placeholder="Username"
+                    value={username}
                     onChange={(e) => setUsername(e.target.value)}
                   />
                   <label
@@ -89,6 +100,7 @@ const Register = () => {
                     type="text"
                     className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
                     placeholder="Full Name"
+                    value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
                   <label
@@ -106,6 +118,7 @@ const Register = () => {
                     type="password"
                     className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
                     placeholder="Password"
+                    value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
                   <label

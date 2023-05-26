@@ -8,11 +8,13 @@ import {
   AccordionIcon,
   Box,
 } from '@chakra-ui/react'
+import { useGetTheme } from "../helpers/GetTheme";
 
 const ProfileElement = () => {
+  const theme=useGetTheme()
   return (
     <>
-      <div className=" hidden bg-white rounded-lg h-fit px-3 py-2 space-y-2 md:block">
+      <div className={theme==="light"? ("hidden bg-white rounded-lg h-fit px-3 py-2 space-y-2 md:block") : ("hidden bg-zinc-800 rounded-lg h-fit px-3 py-2 space-y-2 md:block text-gray-300")}>
         <div>
           {/*button for friend list mobile*/}
           <img

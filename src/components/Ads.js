@@ -1,6 +1,9 @@
+import { useGetTheme } from "../helpers/GetTheme";
+
 const Ads = () => {
+  const theme= useGetTheme()
   return (
-    <div className="bg-white rounded-lg h-fit px-3 py-2">
+    <div className={theme==="light"? ("bg-white rounded-lg h-fit px-3 py-2"): ("bg-zinc-800 rounded-lg h-fit px-3 py-2 text-gray-300")}>
       <h1 className="text-lg font-bold mb-2">Advertisement</h1>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         <div>
