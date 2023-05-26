@@ -42,9 +42,12 @@ const Navbar = () => {
   const toggleTheme= () =>{
    if(theme==="light"){
     setTheme("dark")
+    window.localStorage.setItem("chakra-ui-color-mode", "dark")
    }else{
     setTheme("light")
+    window.localStorage.setItem("chakra-ui-color-mode", "light")
    }
+
    window.location.reload()
   }
 
@@ -85,7 +88,7 @@ const Navbar = () => {
             </button>
           </PopoverTrigger>
           <PopoverContent border={0}>
-            <div className={theme==="light"? ("bg-gray-100 border ") : (" bg-gray-800 text-gray-300 rounded-sm")}>
+            
             <PopoverArrow />
             <PopoverCloseButton />
             <PopoverHeader>
@@ -99,7 +102,7 @@ const Navbar = () => {
             <PopoverBody>
               <h2>Jane Doe liked your post</h2>
             </PopoverBody>
-            </div>
+            
           </PopoverContent>
         </Popover>
         {/*Messages*/}
@@ -111,7 +114,7 @@ const Navbar = () => {
           </PopoverTrigger>
           <PopoverContent border={0}>
             
-            <div className={theme==="light"? ("bg-gray-100 rounded-sm") : ("bg-gray-800 rounded-sm text-gray-300")}>
+            
             <PopoverArrow />
             <PopoverCloseButton />
             <PopoverHeader>
@@ -125,7 +128,7 @@ const Navbar = () => {
               </div>
               
             </PopoverBody>
-            </div>
+            
           </PopoverContent>
         </Popover>
         <Menu>
@@ -157,7 +160,7 @@ const Navbar = () => {
           
         </Menu>
         <button onClick={toggleTheme}>
-          {theme==="light"? (<i class="bi bi-brightness-high-fill"></i>) : (<span className=" text-gray-200"><i class="bi bi-moon-stars-fill"></i></span>)}
+          {theme==="light"? (<span className=" text-gray-700"><i class="bi bi-moon-stars-fill"></i></span>) : (<i class="bi bi-brightness-high-fill"></i>)} 
         </button>
       </div>
     </div>
