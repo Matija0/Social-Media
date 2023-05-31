@@ -4,12 +4,12 @@ import axios from "axios";
 import { BASEURL } from "../../api/BaseUrl";
 
 const Register = () => {
-  const [email, setEmail] = useState();
-  const [username, setUsername] = useState();
-  const [name, setName] = useState();
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
   const [role_id] = useState(1);
   const [verified_email] = useState(1);
-  const [password, setPassword] = useState();
+  const [password, setPassword] = useState("");
 
   const registerUser = (event) => {
     event.preventDefault();
@@ -29,17 +29,16 @@ const Register = () => {
       .catch((e) => {
         console.log(e);
       });
-     clear("") 
+    clear("");
     console.log("Successful registration");
-    
   };
-  
-  const clear = () =>{
-    setEmail("")
-    setUsername("")
-    setName("")
-    setPassword("")
-  }
+
+  const clear = () => {
+    setEmail("");
+    setUsername("");
+    setName("");
+    setPassword("");
+  };
 
   return (
     <div className=" bg-none py-6 flex flex-col justify-center sm:py-12">

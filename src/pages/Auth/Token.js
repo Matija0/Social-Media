@@ -1,4 +1,4 @@
-import { BASEURL } from "@/pages/api/BaseUrl";
+import { BASEURL } from "../../api/BaseUrl";
 import axios from "axios";
 
 export async function Token(token) {
