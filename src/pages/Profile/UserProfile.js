@@ -11,12 +11,15 @@ import {
     useDisclosure,
 } from '@chakra-ui/react'
 import axios from 'axios'
+import { useGetUserID } from '../../helpers/GetUserID'
+import { BASEURL } from '../../api/BaseUrl'
 
 const UserProfile = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
-
+    const userId = useGetUserID();
     const [data, setData] = useState({
+        profileImage: "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg",
         location: "",
         about: "",
         jobs: [],
@@ -41,7 +44,20 @@ const UserProfile = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
+        const params = {
+            profileImage: data.profileImage,
+            job: data.jobs,
+            about: data.about,
+            location: data.location
 
+        }
+        try {
+            await axios.put(BASEURL + "/api/users/userdata/" + userId, params).then((res) => {
+                console.log(res.data);
+            });
+        } catch (err) {
+            console.error(err)
+        }
     }
     return (
         <div id="profile" className='bg-white pt-14 pb-11 mx-auto'>
@@ -112,13 +128,11 @@ const UserProfile = () => {
                             <button onClick={addJob} type="button" className=' bg-gray-300 px-2 py-1 w-fit self-center'>
                                 Add Job
                             </button>
-
+                            <button type='submit'>Submit</button>
                         </form>
                     </ModalBody>
 
-                    <ModalFooter>
-                        <button type='submit'>Submit</button>
-                    </ModalFooter>
+
                 </ModalContent>
             </Modal>
 
