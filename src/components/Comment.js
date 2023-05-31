@@ -9,7 +9,7 @@ import { useGetTheme } from "../helpers/GetTheme";
 const Comment = (props) => {
   const theme = useGetTheme();
 
-  useEffect(() => {}, [theme]);
+
 
   const {
     data: comment,

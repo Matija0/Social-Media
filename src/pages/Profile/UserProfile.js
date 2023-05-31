@@ -1,22 +1,62 @@
-import React from 'react'
+import React, { useState } from 'react'
 import FriendList from '../../components/FriendList'
+import {
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    useDisclosure,
+} from '@chakra-ui/react'
+import axios from 'axios'
 
 const UserProfile = () => {
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
+
+    const [data, setData] = useState({
+        location: "",
+        about: "",
+        jobs: [],
+
+    });
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setData({ ...data, [name]: value });
+    };
+
+    const handleJobChange = (e, index) => {
+        const { value } = e.target;
+        const jobs = data.jobs;
+        jobs[index] = value;
+        setData({ ...data, jobs });
+    };
+
+    const addJob = () => {
+        setData({ ...data, jobs: [...data.jobs, ""] });
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+
+    }
     return (
-        <div id="container" className='bg-white pt-14 pb-11'>
-            <div>
-                <img src='https://wallpapercave.com/wp/wp5600948.jpg' className=' w-full h-72 relative' alt='' />
+        <div id="profile" className='bg-white pt-14 pb-11 mx-auto'>
+            <div className='flex flex-row justify-between px-28'>
 
 
 
 
-                <img src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png' className=' rounded-full w-28 h-28 absolute top-64 left-28' />
-
+                <img src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png' className=' rounded-full w-28 h-28' />
+                <button onClick={onOpen} className=' text-2xl'><i class="bi bi-clipboard-data"></i></button>
             </div>
             <div className=' mt-20 flex flex-col justify-center ml-28 gap-2'>
                 <h1 className=' text-2xl font-bold '>John Doe</h1>
-                <p className=" text-base text-gray-500">Aliquip veniam occaecat proident dolor id non consequat eu eu amet exercitation anim.</p>
-                <span className='text-sm text-gray-400'>San Diego, California, United Sates</span>
+
+
                 <div className=' flex flex-row  mt-7 w-4/5 border-t'>
                     <div className=' w-3/5 border-r'>
                         <div className=' py-4  border-b '>
@@ -48,7 +88,39 @@ const UserProfile = () => {
                     </div>
                 </div>
             </div>
+            <Modal isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalHeader>Enter your data!</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+                        <form onSubmit={handleSubmit} className=' flex flex-col gap-3'>
+                            <h2>Location</h2>
+                            <input onChange={handleChange} className='border border-gray-300' />
+                            <h2>About you:</h2>
+                            <input onChange={handleChange} className='border border-gray-300' />
+                            <h2>Jobs</h2>
+                            {data.jobs.map((job, index) => (
+                                <input
+                                    key={index}
+                                    name="jobs"
+                                    value={job}
+                                    className='border border-gray-300'
+                                    onChange={(e) => handleJobChange(e, index)}
+                                />
+                            ))}
+                            <button onClick={addJob} type="button" className=' bg-gray-300 px-2 py-1 w-fit self-center'>
+                                Add Job
+                            </button>
 
+                        </form>
+                    </ModalBody>
+
+                    <ModalFooter>
+                        <button type='submit'>Submit</button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
 
         </div >
     )
